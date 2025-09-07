@@ -4,6 +4,8 @@ import Hero from './Components/Hero'
 import Main from './Components/main'
 import Footer from './Components/Footer'
 
+
+
 const App = () => {
   return (
     <>
