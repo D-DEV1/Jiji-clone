@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#13b53f] text-white pb-8 mt-auto">
       {/* Cityscape image */}
-        <div className="max-h-full w-full bg-[#fff] flex justify-center">
+        <div className="max-h-full w-full bg-[#ebf2f7] flex justify-center">
           <img src="src/assets/jij1.png" alt="Cityscape"  />
         </div>
       <div className="container mx-auto px-4">

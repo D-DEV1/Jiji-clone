@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 
-const Hero = () => {
+const Hero = ({ search, setSearch }) => {
   // State for dropdown
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
@@ -85,6 +85,10 @@ const Hero = () => {
     columns[i % 3].push({ letter, states: groupedStates[letter] });
   });
 
+const handleChange = (e) => setSearch(e.target.value);
+
+
+
   return (
     <>
       <div className='bg-[#00b53f] w-full h-[265px] flex flex-col justify-center items-center rounded-b-3xl'>
@@ -151,9 +155,17 @@ const Hero = () => {
               </div>
             )}
           </div>
-          {/* Search input with icon */}
+
+          
+
           <div className="relative w-110 mx-3.5">
-            <input type="text" placeholder='I am looking for...' className="bg-white py-2.5 pr-10 pl-4 w-full rounded-md outline-none placeholder-text-[#6c8ea6] cursor-pointer" />
+            <input
+              type="text"
+              placeholder='I am looking for...'
+              className="bg-white py-2.5 pr-10 pl-4 w-full rounded-md outline-none placeholder-text-[#6c8ea6] cursor-pointer"
+              value={search}
+              onChange={handleChange}
+            />
             <span className="absolute inset-y-0 right-3 flex items-center cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#6c8ea6" className="w-5 h-5">
                 <circle cx="11" cy="11" r="7" stroke="#6c8ea6" strokeWidth="2" fill="none" />
