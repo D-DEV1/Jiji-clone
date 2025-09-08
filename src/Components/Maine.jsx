@@ -2,7 +2,7 @@ import React from 'react';
 import { FaAngleRight, FaStar, FaMapMarkerAlt, FaSearch, FaPlus, FaFire, FaCar, FaHome, FaMobileAlt, FaLaptop, FaChair, FaSpa, FaTshirt, FaRunning, FaBriefcase, FaHandsHelping, FaBaby, FaPaw, FaLeaf, FaTools, FaWrench, FaRegLightbulb, FaShoppingCart } from 'react-icons/fa';
 
 
-const Main = () => {
+const Maine = () => {
   const [selectedCategory, setSelectedCategory] = React.useState(null);
   const [hoveredCategory, setHoveredCategory] = React.useState(null);
   const [isHoverPanelVisible, setIsHoverPanelVisible] = React.useState(false);
@@ -10,8 +10,8 @@ const Main = () => {
   const categories = [
     { name: "Post ad", icon: "src/assets/plus-icon.png", ads: "" }, // Placeholder icon
     { name: "Trending", icon: "src/assets/fire-icon.png", ads: "" }, // Placeholder icon
-    { 
-      name: "Vehicles", 
+    {
+      name: "Vehicles",
       icon: FaCar,
       ads: "339,152",
       subcategories: [
@@ -22,8 +22,8 @@ const Main = () => {
         { name: "Heavy Equipment", ads: "20,000" },
       ]
     },
-    { 
-      name: "Property", 
+    {
+      name: "Property",
       icon: FaHome,
       ads: "112,426",
       subcategories: [
@@ -38,8 +38,8 @@ const Main = () => {
         { name: "Garages & Parking", ads: "500" },
       ]
     },
-    { 
-      name: "Mobile Phones & Tablets", 
+    {
+      name: "Mobile Phones & Tablets",
       icon: FaMobileAlt,
       ads: "94,077",
       subcategories: [
@@ -54,8 +54,8 @@ const Main = () => {
         { name: "Other Mobile Devices", ads: "1,000" },
       ]
     },
-    { 
-      name: "Electronics", 
+    {
+      name: "Electronics",
       icon: FaLaptop,
       ads: "277,358",
       subcategories: [
@@ -75,8 +75,8 @@ const Main = () => {
         { name: "Portable Speakers", ads: "9,000" },
       ]
     },
-    { 
-      name: "Home, Furniture & Appliances", 
+    {
+      name: "Home, Furniture & Appliances",
       icon: FaChair,
       ads: "562,457",
       subcategories: [
@@ -87,8 +87,8 @@ const Main = () => {
         { name: "Building Materials", ads: "30,000" },
       ]
     },
-    { 
-      name: "Beauty & Personal Care", 
+    {
+      name: "Beauty & Personal Care",
       icon: FaSpa,
       ads: "74,408",
       subcategories: [
@@ -98,8 +98,8 @@ const Main = () => {
         { name: "Makeup", ads: "9,000" },
       ]
     },
-    { 
-      name: "Fashion", 
+    {
+      name: "Fashion",
       icon: FaTshirt,
       ads: "178,136",
       subcategories: [
@@ -109,8 +109,8 @@ const Main = () => {
         { name: "Accessories", ads: "8,000" },
       ]
     },
-    { 
-      name: "Leisure & Activities", 
+    {
+      name: "Leisure & Activities",
       icon: FaRunning,
       ads: "82,332",
       subcategories: [
@@ -121,8 +121,8 @@ const Main = () => {
         { name: "Musical Instruments", ads: "7,000" },
       ]
     },
-    { 
-      name: "Seeking Work CVs", 
+    {
+      name: "Seeking Work CVs",
       icon: FaBriefcase,
       ads: "20,091",
       subcategories: [
@@ -131,8 +131,8 @@ const Main = () => {
         { name: "Executive", ads: "3,000" },
       ]
     },
-    { 
-      name: "Services", 
+    {
+      name: "Services",
       icon: FaHandsHelping,
       ads: "90,203",
       subcategories: [
@@ -158,8 +158,8 @@ const Main = () => {
         { name: "Garden & Landscaping", ads: "3,000" },
       ]
     },
-    { 
-      name: "Jobs", 
+    {
+      name: "Jobs",
       icon: FaBriefcase,
       ads: "1,566",
       subcategories: [
@@ -185,8 +185,8 @@ const Main = () => {
         { name: "Hospitality Jobs", ads: "210" },
       ]
     },
-    { 
-      name: "Babies & Kids", 
+    {
+      name: "Babies & Kids",
       icon: FaBaby,
       ads: "29,248",
       subcategories: [
@@ -196,8 +196,8 @@ const Main = () => {
         { name: "Prams & Strollers", ads: "5,000" },
       ]
     },
-    { 
-      name: "Animals & Pets", 
+    {
+      name: "Animals & Pets",
       icon: FaPaw,
       ads: "10,340",
       subcategories: [
@@ -207,8 +207,8 @@ const Main = () => {
         { name: "Fish", ads: "1,000" },
       ]
     },
-    { 
-      name: "Food, Agriculture & Farming", 
+    {
+      name: "Food, Agriculture & Farming",
       icon: FaLeaf,
       ads: "31,051",
       subcategories: [
@@ -218,8 +218,8 @@ const Main = () => {
         { name: "Seeds & Plants", ads: "3,000" },
       ]
     },
-    { 
-      name: "Commercial Equipment & Tools", 
+    {
+      name: "Commercial Equipment & Tools",
       icon: FaTools,
       ads: "27,998",
       subcategories: [
@@ -229,8 +229,8 @@ const Main = () => {
         { name: "Office Equipment", ads: "4,000" },
       ]
     },
-    { 
-      name: "Repair & Construction", 
+    {
+      name: "Repair & Construction",
       icon: FaWrench,
       ads: "12,456",
       subcategories: [
@@ -244,7 +244,7 @@ const Main = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 flex flex-col">
-      
+
       <div className="relative flex flex-col md:flex-row">
         {/* Category Grid for Mobile / Sidebar for Desktop */}
         <div className="w-full md:w-1/4 pr-0 md:pr-8 mb-8 md:mb-0 bg-white rounded-lg shadow-lg p-4">
@@ -357,7 +357,7 @@ const Main = () => {
               <p className="font-medium text-purple-700 text-sm">How to buy</p>
             </div>
           </div>
-          
+
           <h2 className="font-bold text-xl mb-4">Trending ads</h2>
 
           {/* Subcategory Display (Permanent on Click) */}
@@ -381,11 +381,11 @@ const Main = () => {
           </div>
 
           {/* Promo Section (original position - removed) */}
-          
+
         </div>
       </div>
     </div>
   );
 };
 
-export default Main;
+export default Maine;
