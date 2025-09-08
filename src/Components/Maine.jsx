@@ -2,9 +2,10 @@ import React,{useState, useEffect} from 'react';
 import { FaAngleRight, FaStar, FaMapMarkerAlt, FaSearch, FaPlus, FaFire, FaCar, FaHome, FaMobileAlt, FaLaptop, FaChair, FaSpa, FaTshirt, FaRunning, FaBriefcase, FaHandsHelping, FaBaby, FaPaw, FaLeaf, FaTools, FaWrench, FaRegLightbulb, FaShoppingCart, FaTh, FaList } from 'react-icons/fa';
 import axios from 'axios';
 
-const Maine = () => {
+const Maine = ({ search }) => {
   
   const [data, setData] = useState([]);  
+  const [filteredData, setFilteredData] = useState([]);
   const [viewType, setViewType] = useState('grid'); // Add this state
 
   useEffect(() => {
@@ -12,6 +13,7 @@ const Maine = () => {
       try {
         const response = await axios.get('https://dummyjson.com/products?limit=72');
         setData(response.data.products);
+        setFilteredData(response.data.products);
       } catch (error) {
         console.error(error);
       }
@@ -19,6 +21,19 @@ const Maine = () => {
     fetchData();
   }, []);
 
+  // Filter products based on search input
+  useEffect(() => {
+    if (!search.trim()) {
+      setFilteredData(data);
+    } else {
+      const filtered = data.filter(product =>
+        product.title.toLowerCase().includes(search.toLowerCase()) ||
+        product.description.toLowerCase().includes(search.toLowerCase()) ||
+        product.category.toLowerCase().includes(search.toLowerCase())
+      );
+      setFilteredData(filtered);
+    }
+  }, [search, data]);
   const [hoveredCategory, setHoveredCategory] = React.useState(null);
   const [isHoverPanelVisible, setIsHoverPanelVisible] = React.useState(false);
   const hoverTimeoutRef = React.useRef(null);
@@ -389,7 +404,9 @@ const Maine = () => {
               </div>
             </div>
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-xl font-semibold">Trending ads</h2>
+              <h2 className="text-xl font-semibold">
+                {search ? `Search results for "${search}"` : 'Trending ads'}
+              </h2>
               <div className="flex items-center space-x-2">
                 <button
                   className="p-2 rounded hover:bg-gray-200"
@@ -412,7 +429,7 @@ const Maine = () => {
                 ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[3px] auto-cols-min'
                 : 'flex flex-col gap-2'
             }`}>
-              {data.map((product, idx) => (
+              {filteredData.length > 0 ? filteredData.map((product, idx) => (
                 <div
                   key={product.id}
                   className={
@@ -482,7 +499,15 @@ const Maine = () => {
                     </div>
                   )}
                 </div>
-              ))}
+              )) : (
+                <div className="col-span-full flex flex-col items-center justify-center py-12 text-center">
+                  <FaSearch className="text-6xl text-gray-300 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-600 mb-2">No products found</h3>
+                  <p className="text-gray-500">
+                    {search ? `No results found for "${search}". Try different keywords.` : 'No products available at the moment.'}
+                  </p>
+                </div>
+              )}
             </div>
 
           </div>
