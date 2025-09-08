@@ -1,10 +1,8 @@
-import React from 'react'
-import Navbar from './Components/Navbar'
-import Hero from './Components/Hero'
-import Maine from './Components/Maine'
-import Footer from './Components/Footer'
-
-
+import React from 'react';
+import Navbar from './Components/Navbar';
+import Hero from './Components/Hero';
+import Maine from './Components/Maine';
+import Footer from './Components/Footer';
 
 const App = () => {
   return (
@@ -14,9 +12,9 @@ const App = () => {
       <Maine />
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 
 
